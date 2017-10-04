@@ -24,9 +24,8 @@ class SnmpBackend(base.BaseBackend):
         self.host = host
         super(SnmpBackend, self).__init__(self.host, *args, **kwargs)
 
-    def run(self, *args, **kwargs):
+    def run(self, command, *args, **kwargs):
 
-        command = kwargs.get('command')
         if command not in ['snmpget', 'snmpwalk']:
             raise ValueError('command must be either snmpget or snmpwalk')
 
