@@ -31,6 +31,7 @@ modules = {
     'facter': 'puppet:Facter',
     'salt': 'salt:Salt',
     'service': 'service:Service',
+    'snmp': 'snmp:SNMP',
     'socket': 'socket:Socket',
     'sudo': 'sudo:Sudo',
     'supervisor': 'supervisor:Supervisor',
