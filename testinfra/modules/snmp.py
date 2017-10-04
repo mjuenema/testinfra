@@ -23,7 +23,8 @@ class SNMP(Module):
         self.version = version
 
     def walk(self, oid):
-        output = self.check_output('snmpwalk', oid=oid, community=self.community,
+        output = self.check_output('snmpwalk', oid=oid,
+                                   community=self.community,
                                    version=self.version)
 
         return [tuple(i.split()) for i in output.split('\n')]
@@ -31,7 +32,8 @@ class SNMP(Module):
     def get(self, oid):
         if not oid.endswith('.0'):
             oid += '.0'
-        output = self.check_output('snmpget', oid=oid, community=self.community,
+        output = self.check_output('snmpget', oid=oid,
+                                   community=self.community,
                                    version=self.version)
 
         return tuple(output.split())
