@@ -24,11 +24,13 @@ class SnmpBackend(base.BaseBackend):
         self.host = host
         super(SnmpBackend, self).__init__(self.host, *args, **kwargs)
 
-    def run(self, command, oid, *args, **kwargs):
+    def run(self, *args, **kwargs):
 
+        command = kwargs.get('command')
         if command not in ['snmpget', 'snmpwalk']:
             raise ValueError('command must be either snmpget or snmpwalk')
 
+        oid = kwargs.get('oid')
         if not oid:
             raise ValueError('oid missing')
 
